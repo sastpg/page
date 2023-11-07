@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/iconfont.css"> -->
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/c/font_4310885_tyw98cse4tl.css">
+    <title>Z's page</title>
+</head>
+
+<body>
+    <div id="bodyBox">
+        <div id="he-plugin-simple"></div>
+        <div id="settings"  onclick="showMenu()"><i class="iconfont">&#xeb8d;</i></div>
+        <div class="menu" id="setMenu">
+            <div class="pContent widePadding" id="contentBg">
+                <div class="pTitle">壁纸偏好</div>
+                <div class="bgGroupCaption">系统壁纸</div>
+                <div class="bgGroup">
+                    <div class="bgPreviewBox selected" id="bgPreviewBoxDefault1" title="落日的海边">
+                        <div class="bgPreBoxInner" id="bgPreBoxInnerDefault1">
+                            <div class="bgPreBoxMask">
+                                <i class="iconfont">&#xec9e;</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgPreviewBox" id="bgPreviewBoxDefault2" title="寂静的夜晚">
+                        <div class="bgPreBoxInner" id="bgPreBoxInnerDefault2">
+                            <div class="bgPreBoxMask">
+                                <i class="iconfont">&#xec9e;</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgPreviewBox" id="bgPreviewBoxDefault3" title="初升的朝阳">
+                        <div class="bgPreBoxInner" id="bgPreBoxInnerDefault3">
+                            <div class="bgPreBoxMask">
+                                <i class="iconfont">&#xec9e;</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgPreviewBox" id="bgPreviewBoxDefault4" title="神奇背景">
+                        <div class="bgPreBoxInner" id="bgPreBoxInnerDefault4">
+                            <div class="bgPreBoxMask">
+                                <i class="iconfont">&#xec9e;</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bgGroupCaption">自定义壁纸</div>
+                <div class="pTitle">模式偏好</div>
+                <div class="bgGroupCaption">简洁模式</div>
+            </div>
+        </div>
+        <div id="timeContainer">
+            <div id="timeText"></div>
+            <div id="dayText"></div>
+        </div>
+        <div id="searchBar">
+            <input type="text" id="inputSearch" name="word" size="30" placeholder="搜索" autocomplete="off" onfocus="add()" onblur="remove()">
+            <div class="searchBarBtn" id="btnSearchEng" onmousedown="selectSearch(event)">
+                <i class="iconfont" id="iconSearchEng">&#xe69a;</i>
+            </div>
+            <div class="searchBarBtn" id="btnSearch" onmousedown="doSearch(event)">
+                <i class="iconfont">&#xe600;</i>
+            </div>
+            <div class="menu" id="menuSearchEng">
+                <div class="menuItem searchEngMenuItem" data-name="bing" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe69a;</i>必应<span class="keyTip">Alt+1</span>
+                </div>
+                <div class="menuItem searchEngMenuItem" data-name="baidu" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe8cb;</i>百度<span class="keyTip">Alt+2</span>
+                </div>
+                <div class="menuItem searchEngMenuItem" data-name="google" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe87a;</i>谷歌<span class="keyTip">Alt+3</span>
+                </div>
+                <div class="menuItem searchEngMenuItem" data-name="bilibili" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe75d;</i>哔哩哔哩<span class="keyTip">Alt+4</span>
+                </div>
+                <div class="menuItem searchEngMenuItem" data-name="github" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe885;</i>Github<span class="keyTip">Alt+5</span>
+                </div>
+                <div class="menuItem searchEngMenuItem" data-name="wiki" onmousedown="changeSearchEng(this, event)">
+                    <i class="iconfont">&#xe8c4;</i>Wiki<span class="keyTip">Alt+6</span>
+                </div>
+            </div>
+        </div>
+        <div id="searchSuggestionContainer"></div>
+        
+        <!-- <div class="menu" id="menuBasics"></div> -->
+        <div class="app">
+            <ul class="recommonds">
+                <li data_old="1" class="sigleRecommond">
+                    <span old_del="1" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://course.zju.edu.cn/" title="" target="_blank">
+                        <img class="img-links2" src="./images/zju.png" style="box-shadow: 0 10px 10px -6px rgba(204, 204, 204, 0.75);">
+                        <span class="text-links">学 在 浙 大</span>
+                    </a>
+                </li>
+                <li data_old="2" class="sigleRecommond">
+                    <span old_del="2" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://www.cc98.org/" title="" target="_blank">
+                        <img class="img-links2" src="./images/cc98.png" style="box-shadow: 0 10px 10px -6px rgba(204, 204, 204, 0.75);">
+                        <span class="text-links">C C 9 8</span>
+                    </a>
+                </li>
+                <li data_old="3" class="sigleRecommond">
+                    <span old_del="3" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://www.bilibili.com/" title="" target="_blank">
+                        <img class="img-links2" src="./images/bilibili.png" style="box-shadow: 0 10px 10px -6px rgba(209, 80, 117, 0.75);">
+                        <span class="text-links">哔 哩 哔 哩</span>
+                    </a>
+                </li>
+                <li data_old="4" class="sigleRecommond">
+                    <span old_del="4" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://poe.com/" title="" target="_blank">
+                        <img class="img-links2" src="./images/poe.png" style="box-shadow: 0 10px 10px -6px rgba(189, 85, 255, 0.75);">
+                        <span class="text-links">P o e</span>
+                    </a>
+                </li>
+                <li data_old="5" class="sigleRecommond">
+                    <span old_del="5" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://bard.google.com/" title="" target="_blank">
+                        <img class="img-links2" src="./images/bard.png" style="box-shadow: 0 10px 10px -6px rgba(204, 204, 204, 0.75);">
+                        <span class="text-links">B a r d</span>
+                    </a>
+                </li>
+                <li data_old="6" class="sigleRecommond">
+                    <span old_del="6" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://chat.openai.com/" title="" target="_blank">
+                        <img class="img-links2" src="./images/chatgpt.png" style="box-shadow: 0 10px 10px -6px rgba(117, 169, 165, 0.75);">
+                        <span class="text-links">ChatGPT</span>
+                    </a>
+                </li>
+                <li data_old="7" class="sigleRecommond">
+                    <span old_del="7" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://github.com/" title="" target="_blank">
+                        <img class="img-links2" src="./images/github.png" style="box-shadow: 0 10px 10px -6px rgba(95, 100, 121, 0.75);">
+                        <span class="text-links">Github</span>
+                    </a>
+                </li>
+                <li data_old="8" class="sigleRecommond">
+                    <span old_del="8" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://www.yuque.com/dashboard/" title="" target="_blank">
+                        <img class="img-links2" src="./images/yuque.png" style="box-shadow: 0 10px 10px -6px rgba(204, 204, 204, 0.75);">
+                        <span class="text-links">语 雀</span>
+                    </a>
+                </li>
+                <li data_old="9" class="sigleRecommond">
+                    <span old_del="10" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://www.aliyundrive.com/drive/file/backup" title="" target="_blank">
+                        <img class="img-links2" src="./images/alipan.ico" style="box-shadow: 0 10px 10px -6px rgba(103, 105, 246, 0.75);">
+                        <span class="text-links">阿 里 云 盘</span>
+                    </a>
+                </li>
+                <li data_old="10" class="sigleRecommond">
+                    <span old_del="9" class="del-flag glyphicon glyphicon-remove"></span>
+                    <a class="singleLink" href="https://mail.zju.edu.cn/" title="" target="_blank">
+                        <img class="img-links2" src="./images/zjuemail.png" style="box-shadow: 0 10px 10px -6px rgba(22, 144, 244, 0.75);">
+                        <span class="text-links">浙 大 邮 箱</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mark">
+                <div class="tab">
+                    <div class="tab-item active">浙大</div>
+                    <div class="tab-item">娱乐</div>
+                    <div class="tab-item">工具</div>
+                    <div class="tab-item">AI 🔥</div>
+                    <div class="tab-item">学习</div>
+                    <div class="tab-item">设计</div>
+                </div>
+                <div class="content products">
+                    <!-- 常用 -->
+                    <div class="mainCont selected">
+                        <div class="quick-all">
+                            <div class="quick">
+                                <a href="http://jwbinfosys.zju.edu.cn/" target="_blank">
+                                    教务网
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://chalaoshi.de/" target="_blank">
+                                    查老师
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://zdbk.zju.edu.cn/jwglxt/xtgl/index_initMenu.html" target="_blank">
+                                    ZDBK
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://classroom.zju.edu.cn/" target="_blank">
+                                    智云课堂
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://www.youth.zju.edu.cn/sztz/" target="_blank">
+                                    素拓网
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://tzzd.zju.edu.cn" target="_blank">
+                                    团在浙大
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://ms.zju.edu.cn/" target="_blank">
+                                    正版软件
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://service.zju.edu.cn/" target="_blank">
+                                    服务平台
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://eta.zju.edu.cn/" target="_blank">
+                                    ETA
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://myvpn.zju.edu.cn/" target="_blank">
+                                    网费管理
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="http://cwcx.zju.edu.cn/WFManager/login.jsp" target="_blank">
+                                    计财处
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://pan.zju.edu.cn/zjusso/" target="_blank">
+                                    浙大云盘
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://form.zju.edu.cn/" target="_blank">
+                                    浙大表单
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://webvpn.zju.edu.cn/" target="_blank">
+                                    WebVPN
+                                </a>
+                            </div>
+                            <div class="quick">
+                                <a href="https://map.zju.edu.cn" target="_blank">
+                                    校园地图
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 购物 -->
+                    <div class="mainCont">
+                        <div class="quick-alls">
+                            <div class="quicks">
+                                <a href="https://www.taobao.com/" target="_blank">
+                                    淘宝
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.jd.com/" target="_blank">
+                                    京东
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.zhihu.com/hot" target="_blank">
+                                    知乎
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.douban.com/" target="_blank">
+                                    豆瓣
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://s.weibo.com/top/summary" target="_blank">
+                                    微博
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://pixivic.com/" target="_blank">
+                                    Pixivic
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.iqiyi.com/" target="_blank">
+                                    爱奇艺
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://v.qq.com/" target="_blank">
+                                    腾讯视频
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.youku.com/" target="_blank">
+                                    优酷
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.mgtv.com/" target="_blank">
+                                    芒果TV
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://tv.cctv.com/" target="_blank">
+                                    CCTV
+                                </a>
+                            </div>
+                            <div class="quicks">
+                                <a href="https://www.douyin.com/discover" target="_blank">
+                                    抖音
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Youtube" title="Youtube">
+                                <a href="https://www.youtube.com/" target="_blank">
+                                    Youtube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 工具 -->
+                    <div class="mainCont">
+                        <div class="quick-alls">
+                            <div class="quicks" data-s="github" title="GitHub">
+                                <a href="https://convertio.co/zh/" target="_blank">
+                                    文件格式转换
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="steam" title="Steam">
+                                <a href="https://beecut.cn/online-video-editor" target="_blank">
+                                    视频编辑
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Gmail" title="Gmail">
+                                <a href="https://www.lupingwang.com/screen-record/" target="_blank">
+                                    在线录屏
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Gmail" title="Gmail">
+                                <a href="https://bili.iiilab.com/" target="_blank">
+                                    B站视频下载
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="网易邮箱" title="网易邮箱">
+                                <a href="https://www.ilovepdf.com/zh-cn" target="_blank">
+                                    PDF工具
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="网易邮箱" title="网易邮箱">
+                                <a href="https://www.mindshow.fun/#/folder/home" target="_blank">
+                                    PPT自动生成
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="新浪邮箱" title="新浪邮箱">
+                                <a href="https://www.iloveimg.com/zh-cn" target="_blank">
+                                    图片工具
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="新浪邮箱" title="新浪邮箱">
+                                <a href="https://airportal.cn/" target="_blank">
+                                    文件空投
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="新浪邮箱" title="新浪邮箱">
+                                <a href="https://cli.im/text" target="_blank">
+                                    二维码生成器
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="新浪邮箱" title="新浪邮箱">
+                                <a href="https://tool.browser.qq.com/" target="_blank">
+                                    工具箱
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="新浪邮箱" title="新浪邮箱">
+                                <a href="https://ol.woobx.cn/" target="_blank">
+                                    一个木函
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="QQ邮箱" title="QQ邮箱">
+                                <a href="https://mail.qq.com/" target="_blank">
+                                    QQ邮箱
+                                </a>
+                            </div>
+                            <div class="quicks" title="百度网盘">
+                                <a href="https://pan.baidu.com/" target="_blank">
+                                    百度网盘
+                                </a>
+                            </div>
+                            <div class="quicks" title="百度网盘">
+                                <a href="https://www.speedtest.cn/" target="_blank">
+                                    网络测速
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AI -->
+                    <div class="mainCont">
+                        <div class="quick-alls">
+                            <div class="quicks" data-s="chatGPT" title="chatGPT">
+                                <a href="https://chat.openai.com/" target="_blank">
+                                        ChatGPT
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Bing" title="Bing">
+                                <a href="https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" target="_blank">
+                                        New Bing
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Bard" title="Bard">
+                                <a href="https://bard.google.com/" target="_blank">
+                                        Bard
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Yiyan" title="Yiyan">
+                                <a href="https://yiyan.baidu.com/" target="_blank">
+                                        文心一言
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Yige" title="Yige">
+                                <a href="https://yige.baidu.com/" target="_blank">
+                                        文心一格
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Qianwen" title="Qianwen">
+                                <a href="https://tongyi.aliyun.com/qianwen" target="_blank">
+                                        通义千问
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Xinghuo" title="Xinghuo">
+                                <a href="https://xinghuo.xfyun.cn/" target="_blank">
+                                        讯飞星火
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Gamma" title="Gamma">
+                                <a href="https://gamma.app/" target="_blank">
+                                    AI 幻灯片
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="Replicate" title="Replicate">
+                                <a href="https://replicate.com/explore" target="_blank">
+                                    Replicate
+                                </a>
+                            </div>
+                            
+                            <div class="quicks" data-s="腾讯视频" title="腾讯视频">
+                                <a href="https://stablediffusionweb.com/" target="_blank">
+                                    Diffussion
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="爱奇艺" title="爱奇艺">
+                                <a href="https://ai-bot.cn/" target="_blank">
+                                    AI 工具集
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 学习 -->
+                    <div class="mainCont">
+                        <div class="quick-alls">
+                            <div class="quicks" title="CSDN">
+                                <a href="https://libweb.zju.edu.cn/" target="_blank">
+                                    浙大图书馆
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.cnki.net/" target="_blank">
+                                    中国知网
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.wanfangdata.com.cn/index.html" target="_blank">
+                                    万方数据
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://dl.acm.org/" target="_blank">
+                                    ACM
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank">
+                                    IEEE
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://sci-hub.hkvisa.net/" target="_blank">
+                                    Sci-Hub
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://arxiv.org/" target="_blank">
+                                    Arxiv
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.csdn.net/" target="_blank">
+                                    CSDN
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.wolframalpha.com/" target="_blank">
+                                    Wolfram
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.geogebra.org/" target="_blank">
+                                    Geogebra
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://csacademy.com/" target="_blank">
+                                    CS学院
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://gcc.godbolt.org/" target="_blank">
+                                    汇编查看器
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://www.onlinegdb.com/" target="_blank">
+                                    GDB在线
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://wandbox.org/" target="_blank">
+                                    代码在线运行
+                                </a>
+                            </div>
+                            <div class="quicks" title="CSDN">
+                                <a href="https://link.zhihu.com/?target=https%3A//www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank">
+                                    算法可视化
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 设计 -->
+                    <div class="mainCont">
+                        <div class="quick-alls">
+                            <div class="quicks" data-s="阿里图标" title="阿里图标">
+                                <a href="http://ps.gzqizhen.com/" target="_blank">
+                                    在线PS
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="阿里图标" title="阿里图标">
+                                <a href="https://www.iconfont.cn/" target="_blank">
+                                    阿里矢量图标
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="iconfinder" title="iconfinder">
+                                <a href="https://www.iconfinder.com/" target="_blank">
+                                    IconFinder
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="iconfinder" title="iconfinder">
+                                <a href="https://app.diagrams.net/" target="_blank">
+                                    流程图绘制
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="iconfinder" title="iconfinder">
+                                <a href="https://www.canva.cn/" target="_blank">
+                                    Canva
+                                </a>
+                            </div>
+                            <div class="quicks" data-s="iconfinder" title="iconfinder">
+                                <a href="http://color.oulu.me/" target="_blank">
+                                    渐变颜色
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="footer">大堡子多</div> -->
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        WIDGET = {
+          "CONFIG": {
+            "modules": "012",
+            "background": "5",
+            "tmpColor": "FFFFFF",
+            "tmpSize": "16",
+            "cityColor": "FFFFFF",
+            "citySize": "16",
+            "aqiColor": "FFFFFF",
+            "aqiSize": "16",
+            "weatherIconSize": "24",
+            "alertIconSize": "18",
+            "padding": "10px 10px 10px 10px",
+            "shadow": "0",
+            "language": "auto",
+            "fixed": "true",
+            "vertical": "top",
+            "horizontal": "left",
+            "key": "9effa8908db54e899846fa883ebf27bc"
+          }
+        }
+        </script>
+        <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+</body>
+
+</html>
