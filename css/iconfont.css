@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4310885 */
-  src: url('iconfont.woff2?t=1699256901209') format('woff2'),
-       url('iconfont.woff?t=1699256901209') format('woff'),
-       url('iconfont.ttf?t=1699256901209') format('truetype');
+  src: url('iconfont.woff2?t=1699329857069') format('woff2'),
+       url('iconfont.woff?t=1699329857069') format('woff'),
+       url('iconfont.ttf?t=1699329857069') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,30 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github-fill:before {
+  content: "\e885";
+}
+
+.icon-zhihu:before {
+  content: "\e69b";
+}
+
+.icon-csdn:before {
+  content: "\e601";
+}
+
+.icon-wikipedia-w:before {
+  content: "\e8c4";
+}
+
+.icon-bilibili-line:before {
+  content: "\e75d";
+}
+
+.icon-duigoux:before {
+  content: "\ec9e";
 }
 
 .icon-fanhui:before {
